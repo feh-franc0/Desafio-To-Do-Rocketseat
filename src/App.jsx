@@ -1,9 +1,13 @@
+import { Header } from './components/Header';
 import {Post} from './Post';
 
 export function App() {
   return (
     <>
+      <Header />
       <h1>Info:</h1>
+
+
       <Post 
         name="jony Felfer" 
         years="50"
