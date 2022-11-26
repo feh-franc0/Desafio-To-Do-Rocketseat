@@ -1,8 +1,10 @@
-export function Post() {
+export function Post(props) {
+  console.log(props)
   return (
     <div>
-      <p>Nome: Felipe Alexandre</p>
-      <p>idade: 50</p>
+      <p><strong>Nome: </strong>{props.name}</p>
+      <p><strong>idade: </strong>{props.years}</p>
+      <p><strong>desc: </strong>{props.content}</p>
     </div>
   )
 }
