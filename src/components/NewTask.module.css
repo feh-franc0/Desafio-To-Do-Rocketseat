@@ -1,0 +1,102 @@
+.containerTask {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 8px;
+
+  position: absolute;
+  width: 736px;
+  height: 54px;
+  left: calc(50% - 736px/2);
+  top: 173px;
+}
+
+.inputTask {
+  box-sizing: border-box;
+  color: var(--gray-300);
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px;
+  gap: 8px;
+
+  width: 638px;
+  height: 54px;
+
+  /* Gray 500 */
+
+  background: var(--gray-500);
+  /* Gray 700 */
+
+  border: 1px solid var(--gray-700);
+  border-radius: 8px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+}
+
+.buttonTask {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  gap: 8px;
+
+  width: 90px;
+  height: 52px;
+
+  /* Blue Dark */
+
+  background: var(--Blue-Dark);
+  border: none;;
+  border-radius: 8px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.buttonTask > span {
+  width: 34px;
+  height: 20px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 140%;
+  /* identical to box height, or 20px */
+
+
+  /* Gray 100 */
+
+  color: var(--gray-100);
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.buttonTask > img {
+  width: 16px;
+  height: 16px;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}

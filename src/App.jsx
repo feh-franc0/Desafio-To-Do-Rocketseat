@@ -1,4 +1,5 @@
 import { Header } from './components/Header';
+import { NewTask } from './components/NewTask';
 import {Post} from './Post';
 
 import './global.css'
@@ -7,6 +8,7 @@ export function App() {
   return (
     <>
       <Header />
+      <NewTask />
       <h1>Info:</h1>
 
 
