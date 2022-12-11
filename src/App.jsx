@@ -1,5 +1,6 @@
 import { Header } from './components/Header';
 import { NewTask } from './components/NewTask';
+import { BodyTasks } from './components/BodyTasks';
 import {Post} from './Post';
 
 import './global.css'
@@ -9,10 +10,10 @@ export function App() {
     <>
       <Header />
       <NewTask />
-      <h1>Info:</h1>
+      <BodyTasks />
 
 
-      <Post 
+      {/* <Post 
         name="jony Felfer" 
         years="50"
         content="Jony Felfer é um senho de 50 anos!"
@@ -26,7 +27,7 @@ export function App() {
         name="Gates" 
         years="31"
         content="Gates um estudioso fascinado pelo saber!"
-      />
+      /> */}
     </>
   )
 }
