@@ -1,4 +1,5 @@
 import styles from './BodyTasks.module.css';
+import layer from '../assets/Layer.svg'
 
 export function BodyTasks() {
   return (
@@ -22,11 +23,30 @@ export function BodyTasks() {
 
       </div>
 
-      <div className={styles.emptyTasks}>
+      {/*Empty  */}
+      {/* <div className={styles.emptyTasks}>
         <div className={styles.imgClipBoard}></div>
         <div className={styles.textAboutEmpty}>
           <p>Você ainda não tem tarefas cadastradas</p>
           <p>Crie tarefas e organize seus itens a fazer</p>
+        </div>
+      </div> */}
+      
+
+      {/*WithTask  */}
+      <div className={styles.task}>
+
+        <div className={styles.checkboxContainer}>
+          <div className={styles.checkboxContainer1}>
+            <input className={styles.checkbox} type="checkbox" />
+          </div>
+        </div>
+
+        <p className={styles.textOfTask}>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer lb.</p>
+
+
+        <div className={styles.deleteTask}>
+            <img src={layer} alt="" />
         </div>
       </div>
 

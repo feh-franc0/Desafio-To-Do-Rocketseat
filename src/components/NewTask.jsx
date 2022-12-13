@@ -3,7 +3,7 @@ import iconAddTask from '../assets/iconAdd.svg'
 
 export function NewTask() {
   return (
-      <form action="" className={styles.containerTask}>
+      <form action="" className={styles.containerTask} onSubmit={() => {alert('ola pessoal')}}>
         <textarea className={styles.inputTask} type="text" placeholder="Deixe um comentário" />
 
         <button className={styles.buttonTask} type="submit">

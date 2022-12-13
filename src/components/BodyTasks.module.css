@@ -1,3 +1,4 @@
+/** Empty task */
 .contantBodyTasks {
   display: flex;
   flex-direction: column;
@@ -225,5 +226,105 @@
   flex: none;
   order: 1;
   align-self: stretch;
+  flex-grow: 0;
+}
+
+
+/** With task */
+.task {
+
+  box-sizing: border-box;
+  
+  /* Auto layout */
+  
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 12px;
+  
+  width: 736px;
+  height: 72px;
+  
+  /* Gray 500 */
+  
+  background: #262626;
+  /* Gray 400 */
+  
+  border: 1px solid #333333;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  
+  /* Inside auto layout */
+  
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.checkboxContainer{
+  width: 24px;
+  height: 24px;
+  
+  
+  /* Inside auto layout */
+  
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.checkbox {
+
+  box-sizing: border-box;
+  
+  width: 24px;
+  height: 24px;
+  
+  border: 1px solid #000000;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  
+  /* Inside auto layout */
+  
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.textOfTask{
+  width: 632px;
+  height: 40px;
+  
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  /* or 20px */
+  
+  
+  /* Gray 100 */
+  
+  color: #F2F2F2;
+  
+  
+  /* Inside auto layout */
+  
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+}
+
+.deleteTask{
+  width: 24px;
+  height: 24px;
+  
+  border-radius: 4px;
+  
+  /* Inside auto layout */
+  
+  flex: none;
+  order: 2;
   flex-grow: 0;
 }
