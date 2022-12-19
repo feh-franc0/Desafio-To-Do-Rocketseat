@@ -35,20 +35,32 @@ export function BodyTasks() {
 
       {/*WithTask  */}
       <div className={styles.task}>
-
-        <div className={styles.checkboxContainer}>
-          <div className={styles.checkboxContainer1}>
-            <input className={styles.checkbox} type="checkbox" />
+        <div className={styles.container}>
+          <div className={styles.round}>
+            <input type="checkbox" id="checkbox" />
+            <label for="checkbox"></label>
           </div>
         </div>
-
         <p className={styles.textOfTask}>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer lb.</p>
-
-
         <div className={styles.deleteTask}>
             <img src={layer} alt="" />
         </div>
       </div>
+
+      
+      <div className={styles.task}>
+        <div className={styles.container}>
+          <div className={styles.round}>
+            <input type="checkbox" id="checkbox1" />
+            <label for="checkbox1"></label>
+          </div>
+        </div>
+        <p className={styles.textOfTask}>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer lb.</p>
+        <div className={styles.deleteTask}>
+            <img src={layer} alt="" />
+        </div>
+      </div>
+
 
     </div>
   );
