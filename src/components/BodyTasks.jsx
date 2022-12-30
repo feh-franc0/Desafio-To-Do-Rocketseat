@@ -2,6 +2,27 @@ import styles from './BodyTasks.module.css';
 import layer from '../assets/Layer.svg'
 
 export function BodyTasks() {
+  const posts = [
+    {
+      id: Math.random(),
+      content: 'Conteúdo do post 1',
+      userName: 'Fernando',
+      publishedAt: new Date(),
+    },
+    {
+      id: Math.random(),
+      content: 'Conteúdo do post 2',
+      userName: 'Fernando',
+      publishedAt: new Date(),
+    },
+    {
+      id: Math.random(),
+      content: 'Conteúdo do post 3',
+      userName: 'Fernando',
+      publishedAt: new Date(),
+    },
+  ];
+
   return (
     <div className={styles.contantBodyTasks}>
 
@@ -10,7 +31,7 @@ export function BodyTasks() {
         <div className={styles.contantTasksCreated}>
           <p className={styles.tasksCreatedText}>Tarefas criadas</p>
           <div className={styles.tasksCreatedCount}>
-            <span>0</span>
+            <span> { posts.length }</span>
           </div>
         </div>
 
@@ -24,43 +45,36 @@ export function BodyTasks() {
       </div>
 
       {/*Empty  */}
-      {/* <div className={styles.emptyTasks}>
+      {/* um tipo de forma para não exibir um codigo caso n atenda a condição */}
+      {posts.length <= 0 ? 
+      <div className={styles.emptyTasks}>
         <div className={styles.imgClipBoard}></div>
         <div className={styles.textAboutEmpty}>
           <p>Você ainda não tem tarefas cadastradas</p>
           <p>Crie tarefas e organize seus itens a fazer</p>
         </div>
-      </div> */}
+      </div>
+      : null
+      }
       
 
       {/*WithTask  */}
-      <div className={styles.task}>
-        <div className={styles.container}>
-          <div className={styles.round}>
-            <input type="checkbox" id="checkbox" />
-            <label for="checkbox"></label>
+      {/* Outra forma de exibir um codigo caso a condição seja atendida */}
+
+      {posts.length > 0 && (posts.map((post) => (
+        <div className={styles.task} key={post.id}>
+          <div className={styles.container}>
+            <div className={styles.round}>
+              <input type="checkbox" id={"checkbox"+post.id} />
+              <label htmlFor={"checkbox"+post.id}></label>
+            </div>
+          </div>
+          <p className={styles.textOfTask}>{post.content}</p>
+          <div className={styles.deleteTask}>
+            <img src={layer} alt="" />
           </div>
         </div>
-        <p className={styles.textOfTask}>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer lb.</p>
-        <div className={styles.deleteTask}>
-            <img src={layer} alt="" />
-        </div>
-      </div>
-
-      
-      <div className={styles.task}>
-        <div className={styles.container}>
-          <div className={styles.round}>
-            <input type="checkbox" id="checkbox1" />
-            <label for="checkbox1"></label>
-          </div>
-        </div>
-        <p className={styles.textOfTask}>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer lb.</p>
-        <div className={styles.deleteTask}>
-            <img src={layer} alt="" />
-        </div>
-      </div>
-
+      )))}
 
     </div>
   );
