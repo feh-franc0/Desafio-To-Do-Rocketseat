@@ -4,24 +4,39 @@ import layer from '../assets/Layer.svg'
 export function BodyTasks() {
   const posts = [
     {
-      id: Math.random(),
+      id: Math.random().toString().substring(2),
       content: 'Conteúdo do post 1',
-      userName: 'Fernando',
-      publishedAt: new Date(),
+      userName: true,
     },
     {
-      id: Math.random(),
+      id: Math.random().toString().substring(2),
       content: 'Conteúdo do post 2',
-      userName: 'Fernando',
-      publishedAt: new Date(),
+      userName: false,
     },
     {
-      id: Math.random(),
+      id: Math.random().toString().substring(2),
       content: 'Conteúdo do post 3',
-      userName: 'Fernando',
-      publishedAt: new Date(),
+      userName: true,
     },
   ];
+
+  
+  const handleChange = (e) => {
+    const el = e.target;
+    const valueClass = e.target.className;
+    const valueId = e.target.id;
+    const checked = e.target.checked;
+    // console.log(el, checked, valueClass,valueId );
+
+    const elemento = document.getElementsByClassName(valueId)[0]
+    console.log(elemento)
+    
+    if (checked) {
+      elemento.style = "text-decoration-line: line-through; color: #808080;"
+    } else {
+      elemento.style = ""
+    }
+  }
 
   return (
     <div className={styles.contantBodyTasks}>
@@ -61,15 +76,16 @@ export function BodyTasks() {
       {/*WithTask  */}
       {/* Outra forma de exibir um codigo caso a condição seja atendida */}
 
+
       {posts.length > 0 && (posts.map((post) => (
         <div className={styles.task} key={post.id}>
           <div className={styles.container}>
             <div className={styles.round}>
-              <input type="checkbox" id={"checkbox"+post.id} />
-              <label htmlFor={"checkbox"+post.id}></label>
+              <input type="checkbox" /*checked={post.userName}*/ className={post.content} id={post.id} onChange={handleChange} />
+              <label htmlFor={post.id}></label>
             </div>
           </div>
-          <p className={styles.textOfTask}>{post.content}</p>
+          <p className={styles.textOfTask+" "+post.id}>{post.content}</p>
           <div className={styles.deleteTask}>
             <img src={layer} alt="" />
           </div>
