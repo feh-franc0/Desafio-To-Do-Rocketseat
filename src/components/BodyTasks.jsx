@@ -1,24 +1,28 @@
 import styles from './BodyTasks.module.css';
 import layer from '../assets/Layer.svg'
 
-export function BodyTasks() {
-  const posts = [
-    {
-      id: Math.random().toString().substring(2),
-      content: 'Conteúdo do post 1',
-      userName: true,
-    },
-    {
-      id: Math.random().toString().substring(2),
-      content: 'Conteúdo do post 2',
-      userName: false,
-    },
-    {
-      id: Math.random().toString().substring(2),
-      content: 'Conteúdo do post 3',
-      userName: true,
-    },
-  ];
+export function BodyTasks({listTasks}) {
+  console.log(listTasks)
+
+  const posts = listTasks
+  
+  // const posts = [
+  //   {
+  //     id: Math.random().toString().substring(2),
+  //     content: 'Conteúdo do post 1',
+  //     // userName: true,
+  //   },
+  //   {
+  //     id: Math.random().toString().substring(2),
+  //     content: 'Conteúdo do post 2',
+  //     // userName: false,
+  //   },
+  //   {
+  //     id: Math.random().toString().substring(2),
+  //     content: 'Conteúdo do post 3',
+  //     // userName: true,
+  //   },
+  // ];
 
   
   const handleChange = (e) => {
@@ -81,11 +85,11 @@ export function BodyTasks() {
         <div className={styles.task} key={post.id}>
           <div className={styles.container}>
             <div className={styles.round}>
-              <input type="checkbox" /*checked={post.userName}*/ className={post.content} id={post.id} onChange={handleChange} />
+              <input type="checkbox" /*checked={post.userName}*/ className={post.text} id={post.id} onChange={handleChange} />
               <label htmlFor={post.id}></label>
             </div>
           </div>
-          <p className={styles.textOfTask+" "+post.id}>{post.content}</p>
+          <p className={styles.textOfTask+" "+post.id}>{post.text}</p>
           <div className={styles.deleteTask}>
             <img src={layer} alt="" />
           </div>
