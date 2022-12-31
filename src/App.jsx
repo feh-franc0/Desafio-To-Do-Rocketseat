@@ -14,11 +14,17 @@ export function App() {
     setTasks(newList)
   }
 
+  function handleDeleteTasks(newTask) {
+    console.log("newTask: ", newTask)
+    
+    setTasks(newTask)
+  }
+
   return (
     <>
       <Header />
       <NewTask onAddTask={handleSaveTasks} />
-      <BodyTasks listTasks={taks} />
+      <BodyTasks listTasks={taks} deleteTaks={handleDeleteTasks} />
     </>
   )
 }

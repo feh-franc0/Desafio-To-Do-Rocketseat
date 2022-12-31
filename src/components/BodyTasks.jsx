@@ -1,7 +1,7 @@
 import styles from './BodyTasks.module.css';
 import layer from '../assets/Layer.svg'
 
-export function BodyTasks({listTasks}) {
+export function BodyTasks({listTasks, deleteTaks}) {
   console.log(listTasks)
 
   const posts = listTasks
@@ -40,6 +40,23 @@ export function BodyTasks({listTasks}) {
     } else {
       elemento.style = ""
     }
+  }
+
+  const delTask = (e) => {
+
+    const elemento = e.target.parentElement.parentElement.className
+    const id = elemento.split(" ")[0]
+    // console.log(id)
+
+    function removeItem( value) {
+      return posts.filter(function(i) {return i["id"] !== value} );
+    }
+
+    var arr2 = removeItem(id)
+
+    console.log(arr2)
+
+    deleteTaks(arr2)
   }
 
   return (
@@ -82,7 +99,7 @@ export function BodyTasks({listTasks}) {
 
 
       {posts.length > 0 && (posts.map((post) => (
-        <div className={styles.task} key={post.id}>
+        <div className={post.id+" "+styles.task} key={post.id}>
           <div className={styles.container}>
             <div className={styles.round}>
               <input type="checkbox" /*checked={post.userName}*/ className={post.text} id={post.id} onChange={handleChange} />
@@ -90,7 +107,7 @@ export function BodyTasks({listTasks}) {
             </div>
           </div>
           <p className={styles.textOfTask+" "+post.id}>{post.text}</p>
-          <div className={styles.deleteTask}>
+          <div className={styles.deleteTask} onClick={delTask}>
             <img src={layer} alt="" />
           </div>
         </div>
