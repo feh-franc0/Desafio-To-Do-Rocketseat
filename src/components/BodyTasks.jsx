@@ -2,41 +2,23 @@ import styles from './BodyTasks.module.css';
 import layer from '../assets/Layer.svg'
 
 export function BodyTasks({listTasks, deleteTaks}) {
-  console.log(listTasks)
+  // console.log(listTasks)
 
   const posts = listTasks
-  
-  // const posts = [
-  //   {
-  //     id: Math.random().toString().substring(2),
-  //     content: 'Conteúdo do post 1',
-  //     // userName: true,
-  //   },
-  //   {
-  //     id: Math.random().toString().substring(2),
-  //     content: 'Conteúdo do post 2',
-  //     // userName: false,
-  //   },
-  //   {
-  //     id: Math.random().toString().substring(2),
-  //     content: 'Conteúdo do post 3',
-  //     // userName: true,
-  //   },
-  // ];
-
+  // { id: "1434217519563845", text: 'Conteúdo do post 1', checked: false },
   
   const handleChange = (e) => {
-    const el = e.target;
-    const valueClass = e.target.className;
     const valueId = e.target.id;
     const checked = e.target.checked;
-    // console.log(el, checked, valueClass,valueId );
+    console.log("handleChange: ", checked, valueId);
 
-    const elemento = document.getElementsByClassName(valueId)[0]
-    console.log(elemento)
+    console.log(posts.filter((e) => {return e["id"] === valueId }))
+    console.log(posts.filter((e) => {return e["id"] !== valueId }))
+
+    const elemento = document.getElementsByClassName("text"+valueId)[0]
     
     if (checked) {
-      elemento.style = "text-decoration-line: line-through; color: #808080;"
+      elemento.style = "color: #808080; text-decoration-line: line-through;"
     } else {
       elemento.style = ""
     }
@@ -46,16 +28,12 @@ export function BodyTasks({listTasks, deleteTaks}) {
 
     const elemento = e.target.parentElement.parentElement.className
     const id = elemento.split(" ")[0]
-    // console.log(id)
 
     function removeItem( value) {
       return posts.filter(function(i) {return i["id"] !== value} );
     }
-
     var arr2 = removeItem(id)
-
-    console.log(arr2)
-
+    // console.log(arr2)
     deleteTaks(arr2)
   }
 
@@ -80,8 +58,7 @@ export function BodyTasks({listTasks, deleteTaks}) {
 
       </div>
 
-      {/*Empty  */}
-      {/* um tipo de forma para não exibir um codigo caso n atenda a condição */}
+      {/* Empty */}
       {posts.length <= 0 ? 
       <div className={styles.emptyTasks}>
         <div className={styles.imgClipBoard}></div>
@@ -94,19 +71,16 @@ export function BodyTasks({listTasks, deleteTaks}) {
       }
       
 
-      {/*WithTask  */}
-      {/* Outra forma de exibir um codigo caso a condição seja atendida */}
-
-
+      {/* WithTask */}
       {posts.length > 0 && (posts.map((post) => (
         <div className={post.id+" "+styles.task} key={post.id}>
           <div className={styles.container}>
             <div className={styles.round}>
-              <input type="checkbox" /*checked={post.userName}*/ className={post.text} id={post.id} onChange={handleChange} />
+              <input type="checkbox" /*checked={post.userName}*/ className={post.text} id={post.id} onChange={handleChange} /*checked={false}*/ />
               <label htmlFor={post.id}></label>
             </div>
           </div>
-          <p className={styles.textOfTask+" "+post.id}>{post.text}</p>
+          <p className={styles.textOfTask+" "+"text"+post.id}>{post.text}</p>
           <div className={styles.deleteTask} onClick={delTask}>
             <img src={layer} alt="" />
           </div>

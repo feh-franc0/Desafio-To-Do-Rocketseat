@@ -10,9 +10,11 @@ export function NewTask({onAddTask}) {
     const data = {
       text: text,
       id: Math.random().toString().substring(2),
+      checked: false,
     }
-    console.log(data)
+    console.log("newTask: ", data)
     onAddTask(data)
+    setText("")
   }
 
   return (

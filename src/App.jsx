@@ -15,7 +15,7 @@ export function App() {
   }
 
   function handleDeleteTasks(newTask) {
-    console.log("newTask: ", newTask)
+    // console.log("newTask: ", newTask)
     
     setTasks(newTask)
   }

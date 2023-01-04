@@ -1,5 +1,5 @@
 export function Post(props) {
-  console.log(props)
+  console.log("props: ", props)
   return (
     <div>
       <p><strong>Nome: </strong>{props.name}</p>
