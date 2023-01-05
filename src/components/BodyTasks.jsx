@@ -2,18 +2,27 @@ import styles from './BodyTasks.module.css';
 import layer from '../assets/Layer.svg'
 
 export function BodyTasks({listTasks, deleteTaks}) {
-  // console.log(listTasks)
-
   const posts = listTasks
   // { id: "1434217519563845", text: 'Conteúdo do post 1', checked: false },
   
   const handleChange = (e) => {
     const valueId = e.target.id;
     const checked = e.target.checked;
-    console.log("handleChange: ", checked, valueId);
+    let newArr = posts.filter((e) => {
+      if (e["id"] !== valueId) {
+        return e["id"];
+      }
+      if (e["id"] === valueId) {
+        if (e.checked === true) {
+          e.checked = false;
+        } else {
+          e.checked = true
+        }
+        return e["id"];
+      }
+    })
 
-    console.log(posts.filter((e) => {return e["id"] === valueId }))
-    console.log(posts.filter((e) => {return e["id"] !== valueId }))
+    deleteTaks(newArr);
 
     const elemento = document.getElementsByClassName("text"+valueId)[0]
     
@@ -33,9 +42,19 @@ export function BodyTasks({listTasks, deleteTaks}) {
       return posts.filter(function(i) {return i["id"] !== value} );
     }
     var arr2 = removeItem(id)
-    // console.log(arr2)
     deleteTaks(arr2)
   }
+
+  const countTaskDone = (arr) => {
+    let count = 0
+    
+    for (let index = 0; index < arr.length; index++) {
+        if(arr[index]["checked"] == true) {
+            count += 1
+        };
+      }
+    return  count;
+}
 
   return (
     <div className={styles.contantBodyTasks}>
@@ -52,7 +71,7 @@ export function BodyTasks({listTasks, deleteTaks}) {
         <div className={styles.contantTasksDone}>
           <p className={styles.tasksDoneText}>Concluídas</p>
           <div className={styles.tasksDonecount}>
-            <span>0</span>
+            <span>{countTaskDone(posts)} de {posts.length}</span>
           </div>
         </div>  
 

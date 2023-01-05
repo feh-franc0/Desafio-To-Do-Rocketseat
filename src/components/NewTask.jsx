@@ -12,7 +12,6 @@ export function NewTask({onAddTask}) {
       id: Math.random().toString().substring(2),
       checked: false,
     }
-    console.log("newTask: ", data)
     onAddTask(data)
     setText("")
   }
